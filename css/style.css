@@ -10,6 +10,11 @@
   box-sizing: border-box;
 }
 
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* Paleta de Cores Premium */
   --verde-escuro: #0f2a1d;

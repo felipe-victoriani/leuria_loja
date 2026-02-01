@@ -43,11 +43,25 @@ class MenuToggle {
 
       // Fechar menu ao clicar nos links
       this.navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          console.log("Clicou em link do menu");
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute("href");
+          const targetSection = document.querySelector(targetId);
+
+          console.log("Clicou em link do menu:", targetId);
+
+          // Scroll suave até a seção
+          if (targetSection) {
+            targetSection.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+
+          // Fechar menu após pequeno delay
           setTimeout(() => {
             this.closeMenu();
-          }, 50);
+          }, 300);
         });
       });
 
