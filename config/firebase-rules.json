@@ -1,0 +1,42 @@
+{
+  "rules": {
+    "products": {
+      ".read": true,
+      ".write": "auth != null",
+      ".indexOn": ["category", "status", "createdAt"],
+      "$productId": {
+        ".validate": "newData.hasChildren(['name', 'price', 'category', 'status'])",
+        "name": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 100"
+        },
+        "price": {
+          ".validate": "newData.isString() && newData.val().matches(/^[0-9]+\\.?[0-9]{0,2}$/)"
+        },
+        "category": {
+          ".validate": "newData.isString() && (newData.val() === 'bolsas' || newData.val() === 'folheados' || newData.val() === 'semijoias' || newData.val() === 'acessorios' || newData.val() === 'oculos' || newData.val() === 'cintos')"
+        },
+        "status": {
+          ".validate": "newData.isString() && (newData.val() === 'available' || newData.val() === 'unavailable')"
+        },
+        "image": {
+          ".validate": "newData.isString() && newData.val().length > 0"
+        },
+        "soldOut": {
+          ".validate": "newData.isBoolean()"
+        },
+        "isNew": {
+          ".validate": "newData.isBoolean()"
+        },
+        "createdAt": {
+          ".validate": "newData.isNumber()"
+        },
+        "updatedAt": {
+          ".validate": "newData.isNumber()"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    }
+  }
+}

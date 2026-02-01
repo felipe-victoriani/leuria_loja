@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Loja Leuria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body>
+    <!-- Tela de Login -->
+    <div class="login-container" id="loginContainer">
+      <div class="login-box">
+        <h2>🔐 Acesso Administrativo</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="admin@lojaleuria.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Senha</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="••••••"
+              required
+            />
+          </div>
+          <div class="error-message" id="loginError"></div>
+          <button type="submit" class="btn btn-primary">Entrar</button>
+          <a href="reset-password.html" class="forgot-password"
+            >Esqueci minha senha</a
+          >
+        </form>
+      </div>
+    </div>
+
+    <!-- Painel Administrativo -->
+    <div class="admin-panel" id="adminPanel" style="display: none">
+      <!-- Header -->
+      <header class="admin-header">
+        <div class="admin-header-content">
+          <h1>✨ Painel Administrativo</h1>
+          <div class="admin-actions">
+            <span id="adminUsername">Admin</span>
+            <button class="btn btn-logout" id="logoutBtn">Sair</button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Formulário de Produto -->
+      <section class="form-section">
+        <h2 id="formTitle">➕ Adicionar Novo Produto</h2>
+        <form id="productForm">
+          <input type="hidden" id="productId" />
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="productName">Nome do Produto *</label>
+              <input type="text" id="productName" required maxlength="100" />
+            </div>
+            <div class="form-group">
+              <label for="productPrice">Preço (R$) *</label>
+              <input
+                type="text"
+                id="productPrice"
+                placeholder="0.00"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="productCategory">Categoria *</label>
+              <select id="productCategory" required>
+                <option value="">Selecione...</option>
+                <option value="bolsas">Bolsas</option>
+                <option value="folheados">Folheados</option>
+                <option value="semijoias">Semi Joias</option>
+                <option value="acessorios">Acessórios</option>
+                <option value="oculos">Óculos de Sol</option>
+                <option value="cintos">Cintos</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="productStatus">Status *</label>
+              <select id="productStatus" required>
+                <option value="available">Disponível</option>
+                <option value="unavailable">Indisponível</option>
+              </select>
+            </div>
+            <div class="form-group full-width">
+              <label for="productImage">Imagem do Produto *</label>
+              <input type="file" id="productImage" accept="image/*" required />
+              <small class="field-hint"
+                >Formatos aceitos: JPG, PNG, WEBP (máx. 2MB)</small
+              >
+              <div id="imagePreview" class="image-preview"></div>
+            </div>
+            <div class="form-group full-width">
+              <label for="productDescription">Descrição</label>
+              <textarea id="productDescription" rows="3"></textarea>
+            </div>
+            <div class="form-group checkbox-group">
+              <label>
+                <input type="checkbox" id="productSoldOut" />
+                Produto Esgotado
+              </label>
+            </div>
+            <div class="form-group checkbox-group">
+              <label>
+                <input type="checkbox" id="productIsNew" />
+                Marcar como Novidade
+              </label>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              Salvar Produto
+            </button>
+            <button type="button" class="btn btn-secondary" id="cancelBtn">
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Listagem de Produtos -->
+      <section class="products-section">
+        <div class="products-header">
+          <h2>📦 Produtos Cadastrados</h2>
+          <div class="filter-controls">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Buscar produto..."
+            />
+            <select id="filterCategory">
+              <option value="">Todas Categorias</option>
+              <option value="maquiagem">Maquiagem</option>
+              <option value="pijama">Pijama</option>
+              <option value="sexy-shop">Sexy Shop</option>
+            </select>
+            <select id="filterStatus">
+              <option value="">Todos Status</option>
+              <option value="available">Disponível</option>
+              <option value="unavailable">Indisponível</option>
+            </select>
+          </div>
+        </div>
+        <div class="products-table-container">
+          <table class="products-table" id="productsTable">
+            <thead>
+              <tr>
+                <th>Imagem</th>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="productsTableBody">
+              <tr>
+                <td colspan="6" class="loading">Carregando produtos...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/admin-security.js"></script>
+    <script src="../js/admin.js"></script>
+  </body>
+</html>

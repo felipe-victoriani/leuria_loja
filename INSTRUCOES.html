@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bem-vindo à Loja Leuria - Instruções de Setup</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 2rem;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        padding: 3rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        color: #667eea;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .intro {
+        background: linear-gradient(135deg, #ff6ec4 0%, #b06fff 100%);
+        color: white;
+        padding: 2rem;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+      }
+
+      .steps {
+        counter-reset: step;
+      }
+
+      .step {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: #f5f5f5;
+        border-radius: 10px;
+        border-left: 4px solid #667eea;
+        position: relative;
+      }
+
+      .step::before {
+        counter-increment: step;
+        content: counter(step);
+        position: absolute;
+        left: -15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #667eea;
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      .step h3 {
+        color: #667eea;
+        margin-bottom: 0.5rem;
+      }
+
+      code {
+        background: #e0e0e0;
+        padding: 0.2rem 0.5rem;
+        border-radius: 5px;
+        font-size: 0.9rem;
+      }
+
+      .code-block {
+        background: #1a1a2e;
+        color: #00ff00;
+        padding: 1rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 1rem 0;
+        font-family: "Courier New", monospace;
+      }
+
+      .links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .link-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        text-decoration: none;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .link-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .link-card h4 {
+        margin-bottom: 0.5rem;
+      }
+
+      .warning {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 1rem 0;
+      }
+
+      .success {
+        background: #d4edda;
+        border-left: 4px solid #28a745;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 1rem 0;
+      }
+
+      ul {
+        margin-left: 2rem;
+        margin-top: 0.5rem;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+
+      .checklist {
+        list-style: none;
+        margin-left: 0;
+      }
+
+      .checklist li::before {
+        content: "☐ ";
+        color: #667eea;
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 2px solid #e0e0e0;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>✨ Bem-vindo à Loja Leuria!</h1>
+
+      <div class="intro">
+        <h2 style="color: white; margin-top: 0">🎉 Parabéns!</h2>
+        <p>
+          Sua loja virtual completa foi criada com sucesso! Este guia vai te
+          ajudar a configurar tudo e começar a vender.
+        </p>
+      </div>
+
+      <h2>🚀 Próximos Passos</h2>
+
+      <div class="steps">
+        <div class="step">
+          <h3>1️⃣ Configurar Firebase</h3>
+          <p>
+            O Firebase é essencial para armazenar seus produtos em tempo real.
+          </p>
+          <ul>
+            <li>
+              Acesse o
+              <a href="https://console.firebase.google.com/" target="_blank"
+                >Firebase Console</a
+              >
+            </li>
+            <li>Crie um novo projeto</li>
+            <li>Ative o Realtime Database</li>
+            <li>
+              Configure as credenciais em <code>js/firebase-config.js</code>
+            </li>
+          </ul>
+          <p>
+            <strong>📚 Guia completo:</strong>
+            <code>docs/FIREBASE_SETUP.md</code>
+          </p>
+        </div>
+
+        <div class="step">
+          <h3>2️⃣ Configurar Segurança</h3>
+          <p>
+            Proteja seu painel administrativo com as melhores práticas de
+            segurança.
+          </p>
+          <ul>
+            <li>
+              Configure o
+              <a href="https://www.google.com/recaptcha/admin" target="_blank"
+                >Google reCAPTCHA</a
+              >
+            </li>
+            <li>
+              Configure o
+              <a href="https://www.emailjs.com/" target="_blank">EmailJS</a>
+              para recuperação de senha
+            </li>
+            <li>
+              <strong>IMPORTANTE:</strong> Altere as credenciais padrão do
+              admin!
+            </li>
+          </ul>
+          <div class="warning">
+            ⚠️ <strong>Atenção:</strong> As credenciais padrão são
+            <code>admin</code> / <code>admin123</code>. Altere em
+            <code>js/admin-security.js</code> antes de colocar no ar!
+          </div>
+          <p>
+            <strong>📚 Guia completo:</strong>
+            <code>docs/SECURITY_SETUP.md</code>
+          </p>
+        </div>
+
+        <div class="step">
+          <h3>3️⃣ Configurar WhatsApp</h3>
+          <p>Integre seu número do WhatsApp para receber pedidos.</p>
+          <p>Edite em <code>js/script.js</code>:</p>
+          <div class="code-block">
+            const whatsappNumber = '5511999999999'; // ← Seu número aqui
+          </div>
+          <p>Formato: [Código País][DDD][Número] sem espaços</p>
+        </div>
+
+        <div class="step">
+          <h3>4️⃣ Cadastrar Produtos</h3>
+          <p>Adicione seus produtos através do painel administrativo.</p>
+          <ul>
+            <li>Acesse <code>pages/admin.html</code></li>
+            <li>Login: <code>admin</code> / <code>admin123</code></li>
+            <li>Clique em "Adicionar Novo Produto"</li>
+            <li>Preencha os campos e salve</li>
+          </ul>
+          <p>
+            <strong>💡 Dica:</strong> Veja exemplos de produtos em
+            <code>docs/PRODUTOS_EXEMPLO.md</code>
+          </p>
+        </div>
+
+        <div class="step">
+          <h3>5️⃣ Testar Funcionalidades</h3>
+          <p>Antes de colocar no ar, teste todas as funcionalidades:</p>
+          <ul class="checklist">
+            <li>Adicionar produtos ao carrinho</li>
+            <li>Ajustar quantidades</li>
+            <li>Remover itens</li>
+            <li>Finalizar pedido (WhatsApp)</li>
+            <li>Login no admin</li>
+            <li>Cadastrar/editar/deletar produtos</li>
+            <li>Recuperação de senha</li>
+            <li>Verificação de idade (Sexy Shop)</li>
+          </ul>
+        </div>
+
+        <div class="step">
+          <h3>6️⃣ Fazer Deploy</h3>
+          <p>Coloque sua loja no ar!</p>
+          <p><strong>Opções de hospedagem:</strong></p>
+          <ul>
+            <li>
+              <strong>Firebase Hosting</strong> (Recomendado) - Integração
+              perfeita
+            </li>
+            <li><strong>Netlify</strong> - Deploy simples e gratuito</li>
+            <li><strong>Vercel</strong> - Performance excelente</li>
+            <li><strong>GitHub Pages</strong> - Simples para começar</li>
+          </ul>
+          <p><strong>📚 Guia completo:</strong> <code>docs/DEPLOY.md</code></p>
+        </div>
+      </div>
+
+      <h2>🔗 Links Rápidos</h2>
+
+      <div class="links">
+        <a href="index.html" class="link-card">
+          <h4>🛍️ Loja</h4>
+          <p>Ver a loja</p>
+        </a>
+        <a href="pages/admin.html" class="link-card">
+          <h4>🔐 Admin</h4>
+          <p>Painel administrativo</p>
+        </a>
+        <a href="pages/sexyshop.html" class="link-card">
+          <h4>🔥 Sexy Shop</h4>
+          <p>Seção 18+</p>
+        </a>
+        <a href="docs/FIREBASE_SETUP.md" class="link-card">
+          <h4>📚 Docs Firebase</h4>
+          <p>Configurar Firebase</p>
+        </a>
+        <a href="docs/SECURITY_SETUP.md" class="link-card">
+          <h4>🔒 Docs Segurança</h4>
+          <p>Configurar segurança</p>
+        </a>
+        <a href="docs/DEPLOY.md" class="link-card">
+          <h4>🚀 Docs Deploy</h4>
+          <p>Colocar no ar</p>
+        </a>
+      </div>
+
+      <h2>📝 Checklist Completo</h2>
+
+      <div class="success">
+        <h3 style="margin-top: 0">Antes de Colocar no Ar</h3>
+        <ul class="checklist">
+          <li>Firebase configurado e testado</li>
+          <li>reCAPTCHA com chaves reais</li>
+          <li>EmailJS configurado</li>
+          <li>WhatsApp com número real</li>
+          <li>Credenciais de admin alteradas</li>
+          <li>Produtos cadastrados</li>
+          <li>Testes realizados</li>
+          <li>Imagens otimizadas</li>
+          <li>Documentação revisada</li>
+          <li>Backup configurado</li>
+        </ul>
+      </div>
+
+      <h2>📚 Estrutura de Arquivos</h2>
+
+      <div class="code-block">
+        loja_leuria/ ├── index.html # Página principal ├── README.md #
+        Documentação principal ├── INSTRUCOES.html # Este arquivo ├── css/ │ ├──
+        style.css # Estilos principais │ ├── admin.css # Estilos admin │ ├──
+        reset-password.css # Estilos recuperação │ └── sexyshop.css # Estilos
+        sexy shop ├── js/ │ ├── firebase-config.js # ⚙️ CONFIGURAR AQUI │ ├──
+        script.js # ⚙️ CONFIGURAR WhatsApp │ ├── admin.js # Lógica admin │ ├──
+        admin-security.js # ⚙️ ALTERAR CREDENCIAIS │ └── reset-password.js # ⚙️
+        CONFIGURAR EmailJS ├── pages/ │ ├── admin.html # ⚙️ CONFIGURAR reCAPTCHA
+        │ ├── reset-password.html │ └── sexyshop.html ├── images/ # 📸 Suas
+        imagens aqui ├── config/ │ └── firebase-rules.json └── docs/ # 📚
+        Documentação completa ├── FIREBASE_SETUP.md ├── SECURITY_SETUP.md ├──
+        CARRINHO_README.md ├── DEPLOY.md └── PRODUTOS_EXEMPLO.md
+      </div>
+
+      <h2>🆘 Precisa de Ajuda?</h2>
+
+      <p>Se encontrar algum problema ou tiver dúvidas:</p>
+      <ul>
+        <li>📖 Consulte a documentação em <code>docs/</code></li>
+        <li>🔍 Verifique o console do navegador (F12) para erros</li>
+        <li>
+          🔥 Consulte a
+          <a href="https://firebase.google.com/docs" target="_blank"
+            >documentação do Firebase</a
+          >
+        </li>
+        <li>📧 Entre em contato com o suporte</li>
+      </ul>
+
+      <h2>💡 Dicas Importantes</h2>
+
+      <div class="warning">
+        <ul style="margin-left: 1rem">
+          <li>
+            <strong>Segurança:</strong> Nunca compartilhe suas credenciais do
+            Firebase, reCAPTCHA ou EmailJS
+          </li>
+          <li>
+            <strong>Backup:</strong> Faça backup regular dos dados do Firebase
+          </li>
+          <li>
+            <strong>Testes:</strong> Sempre teste em ambiente local antes de
+            fazer deploy
+          </li>
+          <li>
+            <strong>Imagens:</strong> Otimize todas as imagens antes de fazer
+            upload
+          </li>
+          <li>
+            <strong>Performance:</strong> Use CDN para imagens em produção
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        <p><strong>✨ Loja Leuria - E-commerce Completo</strong></p>
+        <p>Desenvolvido com ❤️ | Versão 1.0.0 | Janeiro 2026</p>
+        <p style="margin-top: 1rem">
+          <a href="index.html">🏠 Ir para a Loja</a> |
+          <a href="pages/admin.html">🔐 Painel Admin</a> |
+          <a href="README.md">📖 Documentação</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

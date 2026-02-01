@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Loja Leuria - Bolsas, Folheados, Semi Joias e Acessórios de Luxo"
+    />
+    <meta
+      name="keywords"
+      content="bolsas, folheados, semi joias, acessórios, luxo, elegância"
+    />
+    <meta property="og:title" content="Loja Leuria" />
+    <meta
+      property="og:description"
+      content="Acessórios sofisticados para mulheres que valorizam elegância"
+    />
+    <meta property="og:type" content="website" />
+    <title>Loja Leuria - Luxo & Elegância</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <h1>
+              <span class="logo-highlight">L</span>éuria
+              <span class="logo-highlight">J</span>ara
+            </h1>
+          </div>
+
+          <!-- Menu Hambúrguer -->
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <!-- Overlay do Menu -->
+          <div class="nav-overlay" id="navOverlay"></div>
+
+          <!-- Navegação -->
+          <nav class="nav" id="nav">
+            <div class="nav-header">
+              <h2>Menu</h2>
+              <button class="nav-close" id="navClose" aria-label="Fechar Menu">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18 6L6 18M6 6L18 18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </button>
+            </div>
+            <ul class="nav-list">
+              <li><a href="#bolsas" data-category="bolsas">Bolsas</a></li>
+              <li>
+                <a href="#folheados" data-category="folheados">Folheados</a>
+              </li>
+              <li>
+                <a href="#semijoias" data-category="semijoias">Semi Joias</a>
+              </li>
+              <li>
+                <a href="#acessorios" data-category="acessorios">Acessórios</a>
+              </li>
+              <li>
+                <a href="#oculos" data-category="oculos">Óculos de Sol</a>
+              </li>
+              <li>
+                <a href="#cintos" data-category="cintos">Cintos</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="cart-icon" id="cartIcon">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M3 6H21"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M16 10C16 11.0609 15.5786 12.0783 14.8284 12.8284C14.0783 13.5786 13.0609 14 12 14C10.9391 14 9.92172 13.5786 9.17157 12.8284C8.42143 12.0783 8 11.0609 8 10"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span class="cart-badge" id="cartBadge">0</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+      <div class="container"></div>
+    </section>
+
+    <!-- Seção Sobre -->
+    <section class="section section-about">
+      <div class="container">
+        <h2 class="section-title">Sobre</h2>
+        <p class="section-description about-text">
+          Cada peça é cuidadosamente selecionada para você que aprecia elegância
+          e sofisticação. Transformamos momentos especiais em memórias
+          inesquecíveis com acessórios de alta qualidade.
+        </p>
+      </div>
+    </section>
+
+    <!-- Seção Bolsas -->
+    <section id="bolsas" class="section">
+      <div class="container">
+        <h2 class="section-title">Bolsas</h2>
+        <p class="section-description">
+          Bolsas sofisticadas para todas as ocasiões
+        </p>
+
+        <div class="products-grid" id="productsGrid">
+          <p class="loading">Carregando produtos...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Folheados -->
+    <section id="folheados" class="section">
+      <div class="container">
+        <h2 class="section-title">Folheados</h2>
+        <p class="section-description">
+          Joias folheadas a ouro com acabamento impecável
+        </p>
+
+        <div class="products-grid" id="folheados-grid">
+          <p class="loading">Carregando produtos...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Semi Joias -->
+    <section id="semijoias" class="section">
+      <div class="container">
+        <h2 class="section-title">Semi Joias</h2>
+        <p class="section-description">Peças com design sofisticado</p>
+
+        <div class="products-grid" id="semijoias-grid">
+          <p class="loading">Carregando produtos...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Acessórios -->
+    <section id="acessorios" class="section">
+      <div class="container">
+        <h2 class="section-title">Acessórios</h2>
+        <p class="section-description">Presilhas, tiaras e cintos elegantes</p>
+
+        <div class="products-grid" id="acessorios-grid">
+          <p class="loading">Carregando produtos...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Óculos de Sol -->
+    <section id="oculos" class="section">
+      <div class="container">
+        <h2 class="section-title">Óculos de Sol</h2>
+        <p class="section-description">
+          Óculos com proteção UV e design contemporâneo
+        </p>
+
+        <div class="products-grid" id="oculos-grid">
+          <p class="loading">Carregando produtos...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Cintos -->
+    <section id="cintos" class="section">
+      <div class="container">
+        <h2 class="section-title">Cintos</h2>
+        <p class="section-description">
+          Cintos elegantes para complementar seu look
+        </p>
+
+        <div class="products-grid" id="cintos-grid">
+          <p class="loading">Carregando produtos...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3>Leuria Jara</h3>
+            <p>
+              Acessórios sofisticados que valorizam elegância e autenticidade.
+            </p>
+          </div>
+
+          <div class="footer-contact">
+            <a
+              href="https://wa.me/5567984571451"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-link"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span>(67) 8457-1451</span>
+            </a>
+            <p class="footer-hours">Seg-Sex: 9h às 18h</p>
+          </div>
+
+          <div class="footer-social">
+            <a
+              href="https://www.instagram.com/leuriajaraacessorios?igsh=MXVxMDN5Y3RhOHdmbg%3D%3D&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span>@leuriajaraacessorios</span>
+            </a>
+          </div>
+
+          <div class="footer-admin">
+            <a
+              href="pages/admin.html"
+              class="admin-link"
+              aria-label="Painel Administrativo"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <path
+                  d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+                />
+              </svg>
+              <span>Admin</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal do Carrinho -->
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-overlay" id="cartOverlay"></div>
+      <div class="cart-content">
+        <div class="cart-header">
+          <h3>Meu Carrinho</h3>
+          <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+          <p class="empty-cart">Seu carrinho está vazio</p>
+        </div>
+        <div class="cart-footer">
+          <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">R$ 0,00</span>
+          </div>
+          <button class="btn btn-clear" id="clearCart">Limpar Carrinho</button>
+          <button class="btn btn-primary" id="checkoutBtn">
+            Finalizar Pedido
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
