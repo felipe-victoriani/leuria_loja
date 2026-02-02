@@ -318,6 +318,13 @@ h6 {
   justify-content: center;
 }
 
+/* Fallback para dispositivos que não suportam background-attachment: fixed */
+@supports not (background-attachment: fixed) {
+  .hero {
+    background-attachment: scroll;
+  }
+}
+
 .hero::before {
   content: "";
   position: absolute;
@@ -1131,6 +1138,9 @@ h6 {
   
   .hero {
     padding: 4rem 0;
+    background-attachment: scroll;
+    background-position: center top;
+    min-height: 70vh;
   }
   
   .hero-title {
@@ -1185,6 +1195,10 @@ h6 {
   
   .hero {
     padding: 3rem 0;
+    background-attachment: scroll;
+    background-position: center center;
+    min-height: 60vh;
+    background-size: cover;
   }
 
   .hero-title {
@@ -1254,6 +1268,25 @@ h6 {
   .btn-add-cart {
     padding: 0.7rem 0.8rem;
     font-size: 0.75rem;
+  }
+}
+
+/* Telas muito pequenas - smartphones pequenos */
+@media (max-width: 375px) {
+  .hero {
+    padding: 2rem 0;
+    min-height: 50vh;
+    background-position: center 30%;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
   }
 }
 
