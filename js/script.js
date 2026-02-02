@@ -369,7 +369,7 @@ class ShoppingCart {
     });
 
     message += `💰 *Total: R$ ${this.getTotal().toFixed(2)}*\n\n`;
-    message += `📍 Por favor, envie seu endereço completo para entrega.`;
+    message += `📍 Aguardo confirmação do pedido.`;
 
     // Número do WhatsApp
     const whatsappNumber = "5567984571451";
@@ -377,6 +377,77 @@ class ShoppingCart {
 
     // Abrir WhatsApp
     window.open(whatsappURL, "_blank");
+
+    // Mostrar mensagem de confirmação
+    this.showCheckoutSuccess();
+
+    // Limpar carrinho após envio
+    setTimeout(() => {
+      this.clearCart();
+      this.closeCart();
+    }, 2000);
+  }
+
+  // Mostrar mensagem de sucesso do checkout
+  showCheckoutSuccess() {
+    // Criar modal de sucesso
+    const successModal = document.createElement("div");
+    successModal.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(5px);
+      animation: fadeIn 0.3s ease;
+    `;
+
+    const successContent = document.createElement("div");
+    successContent.style.cssText = `
+      background: white;
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      animation: slideUp 0.4s ease;
+      border: 3px solid #B08D57;
+    `;
+
+    successContent.innerHTML = `
+      <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+      <h3 style="color: #0F2A1D; font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1rem;">
+        Pedido Enviado com Sucesso!
+      </h3>
+      <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.6;">
+        Seu pedido foi enviado para o WhatsApp. Nossa equipe entrará em contato em breve para confirmar os detalhes.
+      </p>
+      <div style="color: #B08D57; font-weight: 600; font-size: 0.9rem;">
+        Obrigado pela preferência! 💝
+      </div>
+    `;
+
+    successModal.appendChild(successContent);
+    document.body.appendChild(successModal);
+
+    // Remover modal após 3 segundos
+    setTimeout(() => {
+      successModal.style.animation = "fadeOut 0.3s ease";
+      setTimeout(() => successModal.remove(), 300);
+    }, 3000);
+
+    // Remover ao clicar fora
+    successModal.addEventListener("click", (e) => {
+      if (e.target === successModal) {
+        successModal.remove();
+      }
+    });
   }
 
   // Mostrar notificação
